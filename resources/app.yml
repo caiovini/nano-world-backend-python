@@ -11,10 +11,11 @@ log:
         formatter: "formatter"
         stream: "ext://sys.stderr"
       file:
-        class: "logging.FileHandler"
+        class: "logging.handlers.RotatingFileHandler"
         level: "DEBUG"
         formatter: "formatter"
         filename: "logs/output.log" 
+        maxBytes: 1024
     root:
       level: "DEBUG"
       handlers: [console , file]
