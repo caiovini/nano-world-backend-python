@@ -1,0 +1,27 @@
+log:
+  logging:
+    version: 1
+    formatters:
+      formatter:
+        format: "[%(asctime)s] [%(levelname)s] [%(name)s]: %(message)s"
+    handlers:
+      console:
+        class: "logging.StreamHandler"
+        level: "DEBUG"
+        formatter: "formatter"
+        stream: "ext://sys.stderr"
+      file:
+        class: "logging.FileHandler"
+        level: "DEBUG"
+        formatter: "formatter"
+        filename: "logs/output.log" 
+    root:
+      level: "DEBUG"
+      handlers: [console , file]
+
+nano_node:
+  # Retreive ip address from docker -> sudo docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' {container_id_number}
+  client: http://172.19.0.3:7076
+
+
+geo_database: GeoLite2-City.mmdb
