@@ -1,0 +1,19 @@
+version: '3.7'
+
+services:
+    nano-world-python:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        image: nano-world-python:latest
+        ports:
+            - "8081:80"
+        environment:
+            - nano-world-python_SERVICE__MODE="env"
+            - ...
+        volumes:
+            - type: bind
+              source: "/home/logs"
+              target: "/app/logs"
+
+# Excute --> sudo docker-compose up -d

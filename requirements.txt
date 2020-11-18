@@ -10,7 +10,6 @@ geoip2==4.1.0
 h11==0.11.0
 idna==2.6
 iniconfig==1.1.1
-logging==0.4.9.6
 maxminddb==2.0.3
 multidict==5.0.2
 nano-python==2.0.1
