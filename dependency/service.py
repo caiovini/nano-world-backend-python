@@ -6,7 +6,7 @@ import traceback
 from geoip2.database import Reader
 from geoip2.errors import AddressNotFoundError
 from nano.rpc import Client
-from os.path  import join
+from os.path import join
 
 
 class BaseService():
@@ -17,6 +17,7 @@ class BaseService():
         log withe their own name
         Log will be displayed on console and written at logs/output.log
         """
+
         self.logger = logging.getLogger(
             f'{__name__}.{self.__class__.__name__}',
         )

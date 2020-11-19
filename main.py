@@ -1,4 +1,6 @@
 import sys
+import os
+import pathlib
 
 from os.path import join
 from fastapi import FastAPI , HTTPException , Header , Depends
@@ -49,5 +51,17 @@ def create_container():
     container.wire(modules=[sys.modules[__name__]])
     return container
 
+def create_log_file() -> None:
+
+    folder = join("logs")
+    file_log = "output.log"
+    if pathlib.Path(join(folder , file_log)).is_file(): # File already exists
+        return    
+    
+    os.mkdir(folder)  # Python>3.2
+    with open (join( folder , file_log) , "w") as file: # Create file
+        pass
+
+create_log_file()
 container = create_container();
 app       = create_app(container)
