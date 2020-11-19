@@ -1,6 +1,6 @@
 import traceback
 
-from fastapi import APIRouter , HTTPException
+from fastapi import APIRouter , HTTPException , Path
 from dependency.service import BaseService
 from dependency import service
 
@@ -17,7 +17,7 @@ class NanoNode(APIRouter):
     def set_up_endpoints(self) -> None:
 
         @self.get("/getBalance/{address}") 
-        def get_balance(address : str) -> dict:
+        def get_balance(address : str = Path(... , title = "Nano wallet" , description = " Address of the user's wallet")) -> dict:
 
             self.nano_service.logger.info(f"Request to {get_balance.__name__}")
             try:

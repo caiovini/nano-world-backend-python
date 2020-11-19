@@ -14,7 +14,7 @@ from dependency_injector.wiring import inject , Provide
 def get_content_type(content_type: str = Header("Content-Type")) -> None:
 
     """
-     Check if contnent type is valid foe each request
+     Check if contnent type is valid for each request
     """
     if content_type != "application/json":
         raise HTTPException(status_code=415, detail="Unsupported Media Type, must be application/json")
@@ -43,7 +43,7 @@ def create_app(container : Container , nano_node_router : routers.NanoNode = Pro
     return app
 
 
-def create_container():
+def create_container() -> Container:
     # Define dependency injections
     container = Container()
     container.config.from_yaml( join("resources" , "app.yml") ) # Get app configs from yaml
