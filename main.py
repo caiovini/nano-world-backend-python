@@ -14,7 +14,7 @@ from dependency_injector.wiring import inject , Provide
 def get_content_type(content_type: str = Header("Content-Type")) -> None:
 
     """
-     Check if contnent type is valid for each request
+     Check if content type is valid for each request
     """
     if content_type != "application/json":
         raise HTTPException(status_code=415, detail="Unsupported Media Type, must be application/json")
