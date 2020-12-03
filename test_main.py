@@ -17,31 +17,31 @@ def app():
     app = main.app
     yield app
     app.container.unwire()
-    
 
-def test_get_peers(app : FastAPI) -> None:
+
+def test_get_peers(app: FastAPI) -> None:
 
     client = TestClient(app)
     client.headers["Content-Type"] = "application/json"
     response = client.get("/getPeers")
-        
+
     assert response.status_code == 200
 
-def test_get_geo_locations(app : FastAPI) -> None:
+
+def test_get_geo_locations(app: FastAPI) -> None:
 
     client = TestClient(app)
     client.headers["Content-Type"] = "application/json"
     response = client.get("/getGeoLocations")
-        
+
     assert response.status_code == 200
 
-def test_get_balance(app : FastAPI) -> None:
+
+def test_get_balance(app: FastAPI) -> None:
 
     client = TestClient(app)
     client.headers["Content-Type"] = "application/json"
-    response = client.get("/getBalance/xrb_1111111111111111111111111111111111111111111111111111hifc8npp")
-        
+    response = client.get(
+        "/getBalance/xrb_1111111111111111111111111111111111111111111111111111hifc8npp")
+
     assert response.status_code == 200
-
-
-    
